@@ -29,6 +29,10 @@ export default function Navbar() {
           <Link to="/history" className={navLink("/history")}>
             History
           </Link>
+
+          <Link to="/store" className={navLink("/store")}>
+            Store
+          </Link>
         </nav>
 
       </div>

@@ -10,114 +10,91 @@ import Toast from "../components/Toast";
 
 export default function Home(){
 
-const [file,setFile]=useState()
+    const [file,setFile]=useState()
 
-const [result,setResult]=useState()
+    const [result,setResult]=useState()
 
-const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-const [toast, setToast] = useState({ show:false,message:"",type:"success"});
+    const [toast, setToast] = useState({ show:false,message:"",type:"success"});
 
 
 
-function showToast(message, type = "success") {
+    function showToast(message, type = "success") {
 
-    setToast({
-        show: true,
-        message,
-        type,
-    });
+        setToast({
+            show: true,
+            message,
+            type,
+        });
 
-    setTimeout(() => {
-        setToast((prev) => ({
-            ...prev,
-            show: false,
-        }));
-    }, 3000);
-}
-
-async function predict(){
-
-    
-    if(!file){
-        showToast("Please select an image","error")
-        return
+        setTimeout(() => {
+            setToast((prev) => ({
+                ...prev,
+                show: false,
+            }));
+        }, 3000);
     }
 
-    setLoading(true);
+    async function predict(){
 
-    const fd=new FormData()
+        
+        if(!file){
+            showToast("Please select an image","error")
+            return
+        }
 
-    fd.append("file",file)
+        setLoading(true);
 
-    try{
+        const fd=new FormData()
 
-        const res=
-        await api.post(
-            "/predict",
-            fd
-        )
+        fd.append("file",file)
 
-        setResult(
-            res.data
-        )
+        try{
 
-    }
-
-    catch(err){
-
-        console.log(
-            err.response?.data
-        )
-
-        console.log(
-            err.message
-        )
-
-        alert(
-            JSON.stringify(
-                err.response?.data
-                ||err.message
+            const res=
+            await api.post(
+                "/predict",
+                fd
             )
-        )
+
+            setResult(
+                res.data
+            )
+
+        }
+
+        catch(err){
+
+            console.log(
+                err.response?.data
+            )
+
+            console.log(
+                err.message
+            )
+
+            alert(
+                JSON.stringify(
+                    err.response?.data
+                    ||err.message
+                )
+            )
+
+        }
+        finally{
+            setLoading(false);
+            showToast("Prediction Complete")
+        }
 
     }
-    finally{
-        setLoading(false);
-        showToast("Prediction Complete")
-    }
 
-}
-
-return(
+    return(
 
     <>
 
        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
             <NavBar/>
-
-            {/* <nav className="flex justify-between items-center py-5">
-
-<h1 className="text-2xl font-bold">
-
-                    🐄 CattleEye AI
-
-                </h1>
-                
-                <Link to="/">
-
-                    Home 
-
-                </Link>
-                <span>  </span>
-
-                <Link to="/history">
-                
-                    History
-
-                    </Link>
-                    
-            </nav>  */}
 
             <Hero/>
 

@@ -9,6 +9,7 @@ import HistoryCard from "../components/HistoryCard";
 import EmptyState from "../components/EmptyState";
 import Pagination from "../components/Pagination";
 import LoadingSkeleton from "../components/LoadingSkeleton";
+import NavBar from "../components/NavBar";
 
 export default function History() {
     
@@ -60,6 +61,7 @@ export default function History() {
     return (
 
         <div className="min-h-screen bg-gray-100">
+                <NavBar/>
 
             <div className="max-w-7xl mx-auto p-8">
 
