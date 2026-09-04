@@ -1,8 +1,7 @@
 import axios from "axios";
 
-export default axios.create({
-
-baseURL:"https://symmetrical-fortnight-5gp5qw576pg72579-8000.app.github.dev"
-
+const api = axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
 });
 
+export default api;

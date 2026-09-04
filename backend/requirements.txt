@@ -3,3 +3,6 @@ uvicorn
 tensorflow
 pillow
 python-multipart
+pymongo
+python-dotenv
+cloudinary

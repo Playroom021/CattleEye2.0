@@ -8,12 +8,41 @@ import UploadCard from "../components/UploadCard";
 import ImagePreview from "../components/ImagePreview";
 import Spinner from "../components/Spinner";
 import Toast from "../components/Toast";
+import ProjectInfo from "../components/ProjectInfo";
+import Footer from "../components/Footer";
 
 export default function Home() {
 
     const [file, setFile] = useState(null);
 
-    const [result, setResult] = useState(null);
+    const [result, setResult] = useState(() => {
+
+        try {
+
+            const savedResult =
+                localStorage.getItem(
+                    "cattleeye_last_prediction"
+                );
+
+            return savedResult
+                ? JSON.parse(savedResult)
+                : null;
+
+        } catch (error) {
+
+            console.error(
+                "Could not restore prediction:",
+                error
+            );
+
+            localStorage.removeItem(
+                "cattleeye_last_prediction"
+            );
+
+            return null;
+        }
+
+    });
 
     const [loading, setLoading] = useState(false);
 
@@ -78,6 +107,11 @@ export default function Home() {
 
             setResult(res.data);
 
+            localStorage.setItem(
+                "cattleeye_last_prediction",
+                JSON.stringify(res.data)
+            );
+
             showToast(
                 "Prediction completed successfully"
             );
@@ -112,6 +146,10 @@ export default function Home() {
 
         setResult(null);
 
+        localStorage.removeItem(
+            "cattleeye_last_prediction"
+        );
+
     }
 
 
@@ -134,8 +172,7 @@ export default function Home() {
 
                     <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
 
-                        {!file ? (
-
+                         {!file && !result ? (
                             /* =========================
                                EMPTY STATE
                             ========================== */
@@ -162,7 +199,7 @@ export default function Home() {
 
                             </>
 
-                        ) : (
+                        ) :  file && !result ? (
 
                             /* =========================
                                IMAGE SELECTED
@@ -306,7 +343,7 @@ export default function Home() {
 
                             </>
 
-                        )}
+                        ):null}
 
                     </div>
 
@@ -506,6 +543,13 @@ export default function Home() {
             {/* =========================
                 MOBILE STICKY PREDICT BAR
             ========================== */}
+            
+
+            <ProjectInfo />
+
+            <Footer />
+
+
 
             {file && !result && (
 

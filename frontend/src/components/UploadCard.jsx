@@ -3,7 +3,9 @@ import { Upload, Image as ImageIcon, CheckCircle2 } from "lucide-react";
 
 export default function UploadCard({ file, setFile }) {
 
+
   const inputRef = useRef(null);
+  const cameraRef = useRef(null);
 
   const [dragging, setDragging] = useState(false);
 
@@ -38,9 +40,11 @@ export default function UploadCard({ file, setFile }) {
 
 
   function openFilePicker() {
-
     inputRef.current?.click();
+  }
 
+  function openCamera() {
+    cameraRef.current?.click();
   }
 
 
@@ -64,6 +68,32 @@ export default function UploadCard({ file, setFile }) {
           e.target.value = "";
 
         }}
+      />
+
+      {/* Device image picker */}
+
+      <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          hidden
+          onChange={(e) => {
+              handleFile(e.target.files?.[0]);
+              e.target.value = "";
+          }}
+      />
+
+      {/* Camera */}
+      <input
+          ref={cameraRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          hidden
+          onChange={(e) => {
+              handleFile(e.target.files?.[0]);
+              e.target.value = "";
+          }}
       />
 
 
@@ -192,6 +222,60 @@ export default function UploadCard({ file, setFile }) {
               click to browse
 
             </span>
+            <div
+                className="mt-6 flex flex-col justify-center gap-3 sm:flex-row"
+                onClick={(e) => e.stopPropagation()}
+            >
+
+                <button
+                    type="button"
+                    onClick={openCamera}
+                    className="
+                        inline-flex
+                        items-center
+                        justify-center
+                        gap-2
+                        rounded-xl
+                        bg-green-700
+                        px-5
+                        py-3
+                        font-semibold
+                        text-white
+                        transition
+                        hover:bg-green-800
+                    "
+                >
+                    📷
+                    Take Photo
+                </button>
+
+                <button
+                    type="button"
+                    onClick={openFilePicker}
+                    className="
+                        inline-flex
+                        items-center
+                        justify-center
+                        gap-2
+                        rounded-xl
+                        border
+                        border-gray-200
+                        bg-white
+                        px-5
+                        py-3
+                        font-semibold
+                        text-gray-700
+                        transition
+                        hover:border-green-300
+                        hover:bg-green-50
+                        hover:text-green-700
+                    "
+                >
+                    🖼️
+                    Choose from Device
+                </button>
+
+            </div>
 
           </p>
 

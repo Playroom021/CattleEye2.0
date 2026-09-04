@@ -27,6 +27,11 @@ export default function App() {
                     element={<Store />}
                 />
 
+                {/* <Route
+                    path="/analytics"
+                    element={<Analytics />}
+                /> */}
+
             </Routes>
 
         </BrowserRouter>
