@@ -72,10 +72,10 @@ export default function Footer() {
                             </Link>
 
                             <Link
-                                to="/analytics"
+                                to="/aboutMe"
                                 className="transition hover:text-green-400"
                             >
-                                Analytics
+                                AboutMe
                             </Link>
 
                         </div>

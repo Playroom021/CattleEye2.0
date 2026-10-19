@@ -32,15 +32,15 @@ export default function Hero() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
 
           <div className="rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm ring-1 ring-gray-200">
-            🧠 AI Prediction
+             AI Prediction
           </div>
 
           <div className="rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm ring-1 ring-gray-200">
-            📊 Confidence Score
+            Confidence Score
           </div>
 
           <div className="rounded-full bg-white px-4 py-2 text-sm text-gray-600 shadow-sm ring-1 ring-gray-200">
-            📋 Prediction History
+            Prediction History
           </div>
 
         </div>

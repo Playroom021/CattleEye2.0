@@ -1,7 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
 
+  const navigate = useNavigate();
+  
   const navClass = ({ isActive }) =>
     `transition-colors ${
       isActive
@@ -16,6 +18,7 @@ export default function NavBar() {
         : "text-gray-500"
     }`;
 
+    
   return (
     <>
       {/* =========================
@@ -33,9 +36,9 @@ export default function NavBar() {
             className="flex items-center gap-3"
           >
 
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-700 text-xl text-white shadow-sm">
+            {/*<div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-700 text-xl text-white shadow-sm">
               🐄
-            </div>
+            </div>*/}
 
             <div>
 
@@ -43,9 +46,9 @@ export default function NavBar() {
                 CattleEye
               </h1>
 
-              <p className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 sm:block">
+              {/*<p className="hidden text-[10px] font-medium uppercase tracking-widest text-gray-400 sm:block">
                 AI Cattle Intelligence
-              </p>
+              </p>*/}
 
             </div>
 
@@ -70,12 +73,12 @@ export default function NavBar() {
               History
             </NavLink>
 
-            <NavLink
+            {/*<NavLink
               to="/analytics"
               className={navClass}
             >
               Analytics
-            </NavLink>
+            </NavLink>*/}
 
           </nav>
 
@@ -84,7 +87,7 @@ export default function NavBar() {
 
           <div className="flex items-center gap-3">
 
-            <button
+            {/*<button
               className="
                 hidden
                 rounded-full
@@ -103,27 +106,32 @@ export default function NavBar() {
               "
             >
               About
-            </button>
+            </button>*/}
 
             <button
+              onClick={() => navigate('/aboutMe')}
               className="
                 flex
                 h-10
                 w-10
                 items-center
                 justify-center
+                overflow-hidden
                 rounded-full
                 bg-green-700
-                text-sm
-                font-bold
-                text-white
                 shadow-sm
                 transition
                 hover:bg-green-800
+                cursor-pointer
               "
             >
-              GS
+              <img
+                src="/1792424006512.png"
+                alt="Profile"
+                className="h-full w-full object-cover"
+              />
             </button>
+
 
           </div>
 
@@ -186,7 +194,7 @@ export default function NavBar() {
           </NavLink>
 
 
-          <NavLink
+          {/*<NavLink
             to="/analytics"
             className={mobileNavClass}
           >
@@ -199,7 +207,7 @@ export default function NavBar() {
               Analytics
             </span>
 
-          </NavLink>
+          </NavLink>*/}
 
         </div>
 
