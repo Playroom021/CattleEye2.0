@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+
+
 import api from "../services/api";
 
 import NavBar from "../components/NavBar";
@@ -101,7 +103,6 @@ export default function Home() {
                 "/predict",
                 fd
             );
-
 
             console.log("Prediction response:", res.data);
 
@@ -344,6 +345,28 @@ export default function Home() {
                             </>
 
                         ):null}
+
+                        {/* Advertisement placeholder shown only during prediction */}
+                        {loading && (
+                            <div
+                                className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-5 text-center"
+                                role="status"
+                                aria-live="polite"
+                            >
+                                <p className="text-sm font-medium text-gray-700">
+                                    Analyzing your cattle image...
+                                </p>
+
+                                <div className="mt-3 flex min-h-[100px] flex-col items-center justify-center rounded-xl border border-dashed border-gray-300 bg-white p-4">
+                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                        Advertisement
+                                    </span>
+                                    <p className="mt-2 text-sm text-gray-500">
+                                        Sponsored content will appear here.
+                                    </p>
+                                </div>
+                            </div>
+                        )}
 
                     </div>
 
