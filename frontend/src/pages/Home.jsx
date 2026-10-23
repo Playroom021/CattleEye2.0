@@ -12,6 +12,7 @@ import Spinner from "../components/Spinner";
 import Toast from "../components/Toast";
 import ProjectInfo from "../components/ProjectInfo";
 import Footer from "../components/Footer";
+import PredictionAd from "../components/PredictionAd";
 
 export default function Home() {
 
@@ -346,25 +347,18 @@ export default function Home() {
 
                         ):null}
 
-                        {/* Advertisement placeholder shown only during prediction */}
+                        {/* Show the prediction status and AdSense banner while prediction is running */}
                         {loading && (
-                            <div
-                                className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-5 text-center"
-                                role="status"
-                                aria-live="polite"
-                            >
-                                <p className="text-sm font-medium text-gray-700">
+                            <div className="mt-6">
+                                <p
+                                    className="mb-3 text-center text-sm font-medium text-gray-700"
+                                    role="status"
+                                    aria-live="polite"
+                                >
                                     Analyzing your cattle image...
                                 </p>
 
-                                <div className="mt-3 flex min-h-[100px] flex-col items-center justify-center rounded-xl border border-dashed border-gray-300 bg-white p-4">
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
-                                        Advertisement
-                                    </span>
-                                    <p className="mt-2 text-sm text-gray-500">
-                                        Sponsored content will appear here.
-                                    </p>
-                                </div>
+                                <PredictionAd />
                             </div>
                         )}
 
