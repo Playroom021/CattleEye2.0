@@ -109,7 +109,7 @@ export default function NavBar() {
             </button>*/}
 
             <button
-              onClick={() => navigate('/aboutMe')}
+              onClick={() => navigate('/TeamPage')}
               className="
                 flex
                 h-10

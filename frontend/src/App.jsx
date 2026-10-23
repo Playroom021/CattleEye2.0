@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import History from "./pages/History";
 import Store from "./pages/Store";
-import AboutMe from "./pages/AboutMe";
+import TeamPage from "./pages/TeamPage";
 
 export default function App() {
 
@@ -28,8 +28,8 @@ export default function App() {
                     element={<Store />}
                 />
                 <Route
-                    path="/aboutMe"
-                    element={<AboutMe />}
+                    path="/TeamPage"
+                    element={<TeamPage />}
                 />
 
                 

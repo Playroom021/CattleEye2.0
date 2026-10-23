@@ -358,7 +358,7 @@ export default function Home() {
                                     Analyzing your cattle image...
                                 </p>
 
-                                <PredictionAd />
+                                <PredictionAd key="prediction-loading-ad" />
                             </div>
                         )}
 
@@ -563,6 +563,14 @@ export default function Home() {
             
 
             <ProjectInfo />
+
+            {/* Permanent AdSense placement below the Project About section */}
+            <section
+                className="mx-auto w-full max-w-6xl px-5 py-6 sm:px-8"
+                aria-label="Advertisement"
+            >
+                <PredictionAd />
+            </section>
 
             <Footer />
 
