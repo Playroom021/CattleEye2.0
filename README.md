@@ -2,6 +2,11 @@
 
 > **AI-powered cattle breed identification system using image classification**
 
+### visit the live application 
+### [https://cattle-eye2-0.vercel.app/](https://cattle-eye2-0.vercel.app/)
+
+please star the repo if you like the application
+
 CattleEye 2.0 is a full-stack web application that uses **Artificial Intelligence and Computer Vision** to identify cattle breeds from uploaded images.
 
 Users can upload a cattle image, send it to the AI-powered backend, receive the predicted breed and confidence score, and view previous predictions through the History section.
@@ -15,9 +20,8 @@ cd CattleEye2.0
 
 ---
 #  Setup project 
-to setup the project open setup.md  
+## to setup the project open [setup.md ](SETUP.md) 
 
-### ./SETUP.md
 
 
 ## 🖼️ Project Preview
