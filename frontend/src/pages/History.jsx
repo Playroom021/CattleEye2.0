@@ -140,7 +140,7 @@ export default function History() {
 
     return (
 
-        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+        <div className="min-h-screen page-bg">
 
             <NavBar />
 

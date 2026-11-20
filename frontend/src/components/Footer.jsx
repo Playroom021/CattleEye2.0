@@ -72,10 +72,17 @@ export default function Footer() {
                             </Link>
 
                             <Link
-                                to="/aboutMe"
+                                to="/store"
                                 className="transition hover:text-green-400"
                             >
-                                AboutMe
+                                Market
+                            </Link>
+
+                            <Link
+                                to="/TeamPage"
+                                className="transition hover:text-green-400"
+                            >
+                                About Us
                             </Link>
 
                         </div>

@@ -13,6 +13,7 @@ import Toast from "../components/Toast";
 import ProjectInfo from "../components/ProjectInfo";
 import Footer from "../components/Footer";
 import PredictionAd from "../components/PredictionAd";
+import FeatureCards, { DailyTip } from "../components/FeatureCards";
 
 export default function Home() {
 
@@ -157,7 +158,7 @@ export default function Home() {
 
     return (
 
-        <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-100">
+        <div className="min-h-screen page-bg">
 
             <NavBar />
 
@@ -561,6 +562,10 @@ export default function Home() {
                 MOBILE STICKY PREDICT BAR
             ========================== */}
             
+
+            <FeatureCards />
+
+            <DailyTip />
 
             <ProjectInfo />
 

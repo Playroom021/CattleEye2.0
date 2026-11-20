@@ -73,6 +73,13 @@ export default function NavBar() {
               History
             </NavLink>
 
+            <NavLink
+              to="/store"
+              className={navClass}
+            >
+              Market
+            </NavLink>
+
             {/*<NavLink
               to="/analytics"
               className={navClass}
@@ -189,6 +196,22 @@ export default function NavBar() {
 
             <span>
               History
+            </span>
+
+          </NavLink>
+
+
+          <NavLink
+            to="/store"
+            className={mobileNavClass}
+          >
+
+            <span className="text-xl">
+              🛒
+            </span>
+
+            <span>
+              Market
             </span>
 
           </NavLink>
